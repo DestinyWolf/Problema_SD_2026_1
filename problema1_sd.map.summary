@@ -1,0 +1,18 @@
+Analysis & Synthesis Status : Successful - Tue Mar  3 20:21:08 2026
+Quartus Prime Version : 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+Revision Name : problema1_sd
+Top-level Entity Name : problema1_sd
+Family : Cyclone IV GX
+Total logic elements : 2,269
+    Total combinational functions : 2,100
+    Dedicated logic registers : 819
+Total registers : 819
+Total pins : 339
+Total virtual pins : 0
+Total memory bits : 2,142,368
+Embedded Multiplier 9-bit elements : 18
+Total GXB Receiver Channel PCS : 0
+Total GXB Receiver Channel PMA : 0
+Total GXB Transmitter Channel PCS : 0
+Total GXB Transmitter Channel PMA : 0
+Total PLLs : 0

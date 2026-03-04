@@ -1,0 +1,6 @@
+module mac_first_layer(
+	weigth_or_bias,
+	one_or_pixel,
+	
+
+);

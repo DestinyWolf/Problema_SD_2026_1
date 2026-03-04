@@ -1,0 +1,132 @@
+Flow report for problema1_sd
+Tue Mar  3 20:21:31 2026
+Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Flow Summary
+  3. Flow Settings
+  4. Flow Non-Default Global Settings
+  5. Flow Elapsed Time
+  6. Flow OS Summary
+  7. Flow Log
+  8. Flow Messages
+  9. Flow Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2025  Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Altera and sold by Altera or its authorized distributors.  Please
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++--------------------------------------------------------------------------------------+
+; Flow Summary                                                                         ;
++------------------------------------+-------------------------------------------------+
+; Flow Status                        ; Successful - Tue Mar  3 20:21:28 2026           ;
+; Quartus Prime Version              ; 25.1std.0 Build 1129 10/21/2025 SC Lite Edition ;
+; Revision Name                      ; problema1_sd                                    ;
+; Top-level Entity Name              ; problema1_sd                                    ;
+; Family                             ; Cyclone IV GX                                   ;
+; Device                             ; EP4CGX150DF31C7                                 ;
+; Timing Models                      ; Final                                           ;
+; Total logic elements               ; 2,178 / 149,760 ( 1 % )                         ;
+;     Total combinational functions  ; 2,100 / 149,760 ( 1 % )                         ;
+;     Dedicated logic registers      ; 723 / 149,760 ( < 1 % )                         ;
+; Total registers                    ; 723                                             ;
+; Total pins                         ; 339 / 508 ( 67 % )                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 2,142,368 / 6,635,520 ( 32 % )                  ;
+; Embedded Multiplier 9-bit elements ; 18 / 720 ( 3 % )                                ;
+; Total GXB Receiver Channel PCS     ; 0 / 8 ( 0 % )                                   ;
+; Total GXB Receiver Channel PMA     ; 0 / 8 ( 0 % )                                   ;
+; Total GXB Transmitter Channel PCS  ; 0 / 8 ( 0 % )                                   ;
+; Total GXB Transmitter Channel PMA  ; 0 / 8 ( 0 % )                                   ;
+; Total PLLs                         ; 0 / 8 ( 0 % )                                   ;
++------------------------------------+-------------------------------------------------+
+
+
++-----------------------------------------+
+; Flow Settings                           ;
++-------------------+---------------------+
+; Option            ; Setting             ;
++-------------------+---------------------+
+; Start date & time ; 03/03/2026 20:20:52 ;
+; Main task         ; Compilation         ;
+; Revision Name     ; problema1_sd        ;
++-------------------+---------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                        ;
++-------------------------------------+----------------------------------------+---------------+-------------+------------+
+; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
++-------------------------------------+----------------------------------------+---------------+-------------+------------+
+; COMPILER_SIGNATURE_ID               ; 202441756700055.177258005212417        ; --            ; --          ; --         ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
+; MISC_FILE                           ; ram_img_bb.v                           ; --            ; --          ; --         ;
+; MISC_FILE                           ; ram_win_bb.v                           ; --            ; --          ; --         ;
+; MISC_FILE                           ; ram_beta_bb.v                          ; --            ; --          ; --         ;
+; MISC_FILE                           ; ram_bias_bb.v                          ; --            ; --          ; --         ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
+; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --            ; --          ; --         ;
+; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --         ;
++-------------------------------------+----------------------------------------+---------------+-------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                        ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis ; 00:00:15     ; 1.0                     ; 640 MB              ; 00:00:27                           ;
+; Fitter               ; 00:00:14     ; 1.2                     ; 1654 MB             ; 00:00:25                           ;
+; Assembler            ; 00:00:03     ; 1.0                     ; 479 MB              ; 00:00:03                           ;
+; Timing Analyzer      ; 00:00:02     ; 1.6                     ; 760 MB              ; 00:00:03                           ;
+; Total                ; 00:00:34     ; --                      ; --                  ; 00:00:58                           ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+
+
++---------------------------------------------------------------------------------+
+; Flow OS Summary                                                                 ;
++----------------------+------------------+---------+------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name ; OS Version ; Processor type ;
++----------------------+------------------+---------+------------+----------------+
+; Analysis & Synthesis ; pop-os           ; Pop!_OS ; 24         ; x86_64         ;
+; Fitter               ; pop-os           ; Pop!_OS ; 24         ; x86_64         ;
+; Assembler            ; pop-os           ; Pop!_OS ; 24         ; x86_64         ;
+; Timing Analyzer      ; pop-os           ; Pop!_OS ; 24         ; x86_64         ;
++----------------------+------------------+---------+------------+----------------+
+
+
+------------
+; Flow Log ;
+------------
+quartus_map --read_settings_files=on --write_settings_files=off problema1_sd -c problema1_sd
+quartus_fit --read_settings_files=off --write_settings_files=off problema1_sd -c problema1_sd
+quartus_asm --read_settings_files=off --write_settings_files=off problema1_sd -c problema1_sd
+quartus_sta problema1_sd -c problema1_sd
+
+
+

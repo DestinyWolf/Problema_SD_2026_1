@@ -1,0 +1,24 @@
+module reg_bank128 (
+    input wire clk,
+    input wire wr_en,                     // Sinal de Habilitação de Escrita
+    
+    input wire [6:0] addr_w,              // Endereço de escrita (0 a 127)
+    input wire signed [15:0] data_in,     // Dado a ser salvo (Formato Q4.12)
+    
+    input wire [6:0] addr_r,              // Endereço de leitura (0 a 127)
+    output reg signed [15:0] data_out    // Dado lido
+);
+
+    // Declaração da matriz de 128 registradores de 16 bits
+    reg signed [15:0] memoria [0:127];
+
+    // Escrita Síncrona (Acontece na borda do clock)
+    always @(posedge clk) begin
+        if (wr_en) begin
+            memoria[addr_w] <= data_in;
+        end
+		  data_out = memoria[addr_r];
+    end
+
+    // Leitura Assíncrona (O dado sai instantaneamente quando 'addr_r' muda)
+endmodule
