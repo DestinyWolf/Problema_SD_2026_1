@@ -7,6 +7,12 @@ state.SECOND_LAYER 0 1 0 1 0
 state.ARGMAX 1 0 0 1 0 
 state.DONE 0 0 0 1 1 
 
+State Machine - |problema1_sd|neural_unit:comb_64|argmax_iterativo:agm|state
+Name state.IDLE state.EVALUATE state.REQUEST_DATA 
+state.IDLE 0 0 0 
+state.REQUEST_DATA 1 0 1 
+state.EVALUATE 1 1 0 
+
 State Machine - |problema1_sd|neural_unit:comb_64|second_layer:sd_layer|sd_fms_state
 Name sd_fms_state.DONE_IT sd_fms_state.INCREMENT sd_fms_state.WAIT_RES5 sd_fms_state.ST_RES5 sd_fms_state.WAIT_RES4 sd_fms_state.ST_RES4 sd_fms_state.WAIT_RES3 sd_fms_state.ST_RES3 sd_fms_state.WAIT_RES2 sd_fms_state.ST_RES2 sd_fms_state.WAIT_RES1 sd_fms_state.ST_RES1 sd_fms_state.VF_LAST_DATA 
 sd_fms_state.VF_LAST_DATA 0 0 0 0 0 0 0 0 0 0 0 0 0 

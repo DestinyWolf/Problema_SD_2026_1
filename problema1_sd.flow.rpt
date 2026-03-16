@@ -1,5 +1,5 @@
 Flow report for problema1_sd
-Tue Mar  3 20:21:31 2026
+Mon Mar 16 19:01:15 2026
 Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
 
 
@@ -41,17 +41,17 @@ on the Quartus Prime software download page.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Tue Mar  3 20:21:28 2026           ;
+; Flow Status                        ; Successful - Mon Mar 16 19:01:12 2026           ;
 ; Quartus Prime Version              ; 25.1std.0 Build 1129 10/21/2025 SC Lite Edition ;
 ; Revision Name                      ; problema1_sd                                    ;
 ; Top-level Entity Name              ; problema1_sd                                    ;
 ; Family                             ; Cyclone IV GX                                   ;
 ; Device                             ; EP4CGX150DF31C7                                 ;
 ; Timing Models                      ; Final                                           ;
-; Total logic elements               ; 2,178 / 149,760 ( 1 % )                         ;
-;     Total combinational functions  ; 2,100 / 149,760 ( 1 % )                         ;
-;     Dedicated logic registers      ; 723 / 149,760 ( < 1 % )                         ;
-; Total registers                    ; 723                                             ;
+; Total logic elements               ; 2,699 / 149,760 ( 2 % )                         ;
+;     Total combinational functions  ; 2,576 / 149,760 ( 2 % )                         ;
+;     Dedicated logic registers      ; 914 / 149,760 ( < 1 % )                         ;
+; Total registers                    ; 914                                             ;
 ; Total pins                         ; 339 / 508 ( 67 % )                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 2,142,368 / 6,635,520 ( 32 % )                  ;
@@ -69,7 +69,7 @@ on the Quartus Prime software download page.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 03/03/2026 20:20:52 ;
+; Start date & time ; 03/16/2026 19:00:36 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; problema1_sd        ;
 +-------------------+---------------------+
@@ -80,7 +80,7 @@ on the Quartus Prime software download page.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 202441756700055.177258005212417        ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 182713338090218.177369843632446        ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
 ; MISC_FILE                           ; ram_img_bb.v                           ; --            ; --          ; --         ;
@@ -100,24 +100,24 @@ on the Quartus Prime software download page.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:15     ; 1.0                     ; 640 MB              ; 00:00:27                           ;
-; Fitter               ; 00:00:14     ; 1.2                     ; 1654 MB             ; 00:00:25                           ;
-; Assembler            ; 00:00:03     ; 1.0                     ; 479 MB              ; 00:00:03                           ;
-; Timing Analyzer      ; 00:00:02     ; 1.6                     ; 760 MB              ; 00:00:03                           ;
-; Total                ; 00:00:34     ; --                      ; --                  ; 00:00:58                           ;
+; Analysis & Synthesis ; 00:00:14     ; 1.0                     ; 867 MB              ; 00:00:33                           ;
+; Fitter               ; 00:00:15     ; 1.3                     ; 2403 MB             ; 00:00:30                           ;
+; Assembler            ; 00:00:03     ; 1.0                     ; 686 MB              ; 00:00:03                           ;
+; Timing Analyzer      ; 00:00:02     ; 2.0                     ; 1081 MB             ; 00:00:03                           ;
+; Total                ; 00:00:34     ; --                      ; --                  ; 00:01:09                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+---------------------------------------------------------------------------------+
-; Flow OS Summary                                                                 ;
-+----------------------+------------------+---------+------------+----------------+
-; Module Name          ; Machine Hostname ; OS Name ; OS Version ; Processor type ;
-+----------------------+------------------+---------+------------+----------------+
-; Analysis & Synthesis ; pop-os           ; Pop!_OS ; 24         ; x86_64         ;
-; Fitter               ; pop-os           ; Pop!_OS ; 24         ; x86_64         ;
-; Assembler            ; pop-os           ; Pop!_OS ; 24         ; x86_64         ;
-; Timing Analyzer      ; pop-os           ; Pop!_OS ; 24         ; x86_64         ;
-+----------------------+------------------+---------+------------+----------------+
++--------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                      ;
++----------------------+------------------+--------------+------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name      ; OS Version ; Processor type ;
++----------------------+------------------+--------------+------------+----------------+
+; Analysis & Synthesis ; kake-nobara      ; Nobara Linux ; 43         ; x86_64         ;
+; Fitter               ; kake-nobara      ; Nobara Linux ; 43         ; x86_64         ;
+; Assembler            ; kake-nobara      ; Nobara Linux ; 43         ; x86_64         ;
+; Timing Analyzer      ; kake-nobara      ; Nobara Linux ; 43         ; x86_64         ;
++----------------------+------------------+--------------+------------+----------------+
 
 
 ------------

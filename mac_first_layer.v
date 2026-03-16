@@ -9,28 +9,40 @@ module mac_first_layer(
 );
 
 	input signed [15:0] weigth_or_bias;
-	input [8:0] one_or_pixel;
-	input clk, enable, rst, clear_acc;
-	
-	output signed [15:0] out_q4_12;
-	
-	wire signed [15:0] in_signed = {3'b000, one_or_pixel, 4'h0};
-	wire signed [31:0] product;
-	
-	assign product = in_signed * weigth_or_bias;
-	
-	reg signed [31:0] accumulator;
-	
-	always @(posedge clk or posedge rst) begin
-		if (rst) begin
-			accumulator <= 32'sd0;
-		end else if (clear_acc) begin
-			accumulator <= 32'sd0;
-		end else if (enable) begin
-			accumulator <= accumulator + product;
-		end
-	end
-	
-	
-	assign out_q4_12 = accumulator[27:12];
+    input [8:0] one_or_pixel;
+    input clk, enable, rst, clear_acc;
+    
+    output signed [15:0] out_q4_12;
+    
+    // Pixel de 8 bits transformado em Q4.12
+    wire signed [15:0] in_signed = {3'b000, one_or_pixel, 4'h0};
+    
+    // O produto de dois Q4.12 gera um Q8.24 (32 bits)
+    wire signed [31:0] product_q8_24;
+    assign product_q8_24 = in_signed * weigth_or_bias;
+    
+    // CORREÇÃO: Descartar as 12 casas decimais extras geradas pela multiplicação
+    // Isso traz o número de volta para o alinhamento de 12 casas fracionárias
+    wire signed [31:0] product_q_12;
+    assign product_q_12 = product_q8_24 >>> 12; 
+    
+    // Acumulador de 32 bits (Atua como um formato Q20.12 gigante, impossível de dar overflow na soma)
+    reg signed [31:0] accumulator;
+    
+    always @(posedge clk or posedge rst) begin
+        if (rst) begin
+            accumulator <= 32'sd0;
+        end else if (clear_acc) begin
+            accumulator <= 32'sd0;
+        end else if (enable) begin
+            // Agora estamos somando laranjas com laranjas!
+            accumulator <= accumulator + product_q_12;
+        end
+    end
+    
+    // Saturação (Clipping) para encaixar os 32-bits de volta nos 16-bits de saída
+    assign out_q4_12 = (accumulator > 32'sd32767)  ? 16'sd32767 :
+                       (accumulator < -32'sd32768) ? -16'sd32768 :
+                       accumulator[15:0]; 
+
 endmodule

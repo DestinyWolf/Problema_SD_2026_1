@@ -284,7 +284,7 @@ wire argmax_terminou;
 		.done(done_unit)
 	);
 	wire [3:0] winner;
-	 /*wire enable_fr_layer, enable_sd_layer;
+	/* wire enable_fr_layer, enable_sd_layer;
 	 wire fr_iteration_done, sd_iteration_done;
 	 wire [4:0] iteration_counter;
 	 wire sd_iteration_counter;
@@ -307,7 +307,7 @@ wire argmax_terminou;
 //  INSTANCIAÇÃO DAS CAMADAS NEURAIS
 // =======================================================    
     first_layer modulo_teste(
-        .iteration_done(fr_iteration_done),
+        .done(fr_iteration_done),
         .iteration_counter(iteration_counter),
         .enable(SW[7]),
         .addr_pixel(addr_pixel),
@@ -349,7 +349,7 @@ wire argmax_terminou;
         .addr_register_raw(addr_reg),
         .data_register_raw(data_to_raw_sd),
         .enable_register_write(w_en2),
-        .iteration_done(sd_iteration_done),
+        .done(sd_iteration_done),
         .iteration_counter(sd_iteration_counter), // <-- Verifique o tamanho disto na sua second_layer!
         .clk(CLOCK_50),
         .enable(SW[7]),
@@ -359,7 +359,7 @@ wire argmax_terminou;
     );
 
     reg_bank10 reg_second_layer(
-        .addr_r(addr_to_rd_points),
+        .addr_r(SW[3:0]),
         .addr_w(addr_reg),
         .data_in(data_to_raw_sd),
         .data_out(points_readed),
@@ -380,10 +380,10 @@ wire argmax_terminou;
         .HEX2(HEX2),
         .HEX1(HEX1),
         .HEX0(HEX0)
-    );
+    );*/
 
 	 
-    argmax_iterativo juiz_final (
+    /*argmax_iterativo juiz_final (
         .clk(CLOCK_50),
         .rst(SW[8]), 
         .enable(SW[7]), 

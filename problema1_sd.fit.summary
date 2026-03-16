@@ -1,14 +1,14 @@
-Fitter Status : Successful - Tue Mar  3 20:21:23 2026
+Fitter Status : Successful - Mon Mar 16 19:01:07 2026
 Quartus Prime Version : 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
 Revision Name : problema1_sd
 Top-level Entity Name : problema1_sd
 Family : Cyclone IV GX
 Device : EP4CGX150DF31C7
 Timing Models : Final
-Total logic elements : 2,178 / 149,760 ( 1 % )
-    Total combinational functions : 2,100 / 149,760 ( 1 % )
-    Dedicated logic registers : 723 / 149,760 ( < 1 % )
-Total registers : 723
+Total logic elements : 2,699 / 149,760 ( 2 % )
+    Total combinational functions : 2,576 / 149,760 ( 2 % )
+    Dedicated logic registers : 914 / 149,760 ( < 1 % )
+Total registers : 914
 Total pins : 339 / 508 ( 67 % )
 Total virtual pins : 0
 Total memory bits : 2,142,368 / 6,635,520 ( 32 % )

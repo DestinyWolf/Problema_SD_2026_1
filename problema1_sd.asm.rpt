@@ -1,5 +1,5 @@
 Assembler report for problema1_sd
-Tue Mar  3 20:21:28 2026
+Mon Mar 16 19:01:12 2026
 Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
 
 
@@ -39,7 +39,7 @@ on the Quartus Prime software download page.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Tue Mar  3 20:21:28 2026 ;
+; Assembler Status      ; Successful - Mon Mar 16 19:01:12 2026 ;
 ; Revision Name         ; problema1_sd                          ;
 ; Top-level Entity Name ; problema1_sd                          ;
 ; Family                ; Cyclone IV GX                         ;
@@ -64,13 +64,13 @@ on the Quartus Prime software download page.
 +--------+------------------------+--------------+
 
 
-+----------------------------------------------------+
-; Assembler Generated Files                          ;
-+----------------------------------------------------+
-; File Name                                          ;
-+----------------------------------------------------+
-; /home/kake/Documentos/Problema_sd/problema1_sd.sof ;
-+----------------------------------------------------+
++-----------------------------------------------------------+
+; Assembler Generated Files                                 ;
++-----------------------------------------------------------+
+; File Name                                                 ;
++-----------------------------------------------------------+
+; /home/kake/Documentos/Problema_SD_2026_1/problema1_sd.sof ;
++-----------------------------------------------------------+
 
 
 +--------------------------------------------+
@@ -78,8 +78,8 @@ on the Quartus Prime software download page.
 +----------------+---------------------------+
 ; Option         ; Setting                   ;
 +----------------+---------------------------+
-; JTAG usercode  ; 0x022D1E33                ;
-; Checksum       ; 0x022D1E33                ;
+; JTAG usercode  ; 0x02305775                ;
+; Checksum       ; 0x02305775                ;
 +----------------+---------------------------+
 
 
@@ -89,14 +89,14 @@ on the Quartus Prime software download page.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
-    Info: Processing started: Tue Mar  3 20:21:25 2026
+    Info: Processing started: Mon Mar 16 19:01:09 2026
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off problema1_sd -c problema1_sd
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 479 megabytes
-    Info: Processing ended: Tue Mar  3 20:21:28 2026
+    Info: Peak virtual memory: 686 megabytes
+    Info: Processing ended: Mon Mar 16 19:01:12 2026
     Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:03
 

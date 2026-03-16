@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP4CGX150DF31) Path("/home/kake/Documentos/Problema_sd/") File("problema1_sd.sof") MfrSpec(OpMask(1));
+		Device PartName(EP4CGX150DF31) Path("/home/kake/Documentos/Problema_SD_2026_1/") File("problema1_sd.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 
