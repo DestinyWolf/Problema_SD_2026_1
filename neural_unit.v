@@ -1,3 +1,7 @@
+/***********************************************
+UNIDADE PARA CALCULO E INFERENCIAS DA REDE NEURAL
+DESENVOLVIDA POR MAIKE DE OLIVEIRA NASCIMENTO MONITOR DA MATERIA DE SISTEMAS DIGITAIS
+***********************************************/
 module neural_unit(
 	addr_mem_bias,
 	addr_mem_pixel,
@@ -21,13 +25,14 @@ module neural_unit(
 	output_digit,
 	done
 	
-	
-	//to debug
-	
 );
-
+	/*********************************************************
+	Entradas e saidas do Modulo
+	**********************************************************/
 	input is_available_beta, is_available_bias, is_available_pixel, is_available_win;
 	input clk, rst, enable;
+	input signed [15:0] data_in_beta, data_in_bias, data_in_win;
+	input [7:0] data_in_pixel;
 	output req_beta, req_bias, req_pixel, req_win;
 	output reg done;
 	output [3:0] output_digit;
@@ -35,28 +40,42 @@ module neural_unit(
 	output [6:0] addr_mem_bias;
 	output [16:0] addr_mem_win;
 	output [10:0] addr_mem_beta;
-	input signed [15:0] data_in_beta, data_in_bias, data_in_win;
-	input [7:0] data_in_pixel;
-
+	
+	/**************************************************************
+	Estados da FMS do modulo de calculo e inferencia
+	**************************************************************/
 
 	localparam IDLE = 3'b0, FIRST_LAYER=3'b1, SECOND_LAYER=3'b10, ARGMAX=3'b11, DONE=3'b100;
-	reg [2:0] state;
-	wire [4:0] first_layer_iteration_counter;
-	wire first_layer_iteration_done;
-	wire [6:0] addr_register_write_first_layer;
-	wire enable_register_write_first_layer;
-	wire [3:0] addr_register_write_second_layer;
-	wire second_layer_iteration_done, second_layer_iteration_counter;
-	wire enable_register_write_second_layer;
-	wire argmax_iteration_done;
+	
+	/*************************************************************
+	Registradores e fios de dados
+	*************************************************************/
 	wire signed [15:0] data_out_first_layer;
 	wire signed [15:0] data_out_second_layer;
 	wire signed [15:0] data_out_from_register_to_second_layer;
 	wire [6:0] addr_register_read_second_layer;
 	wire [3:0] addr_register_read_argmax;
 	wire signed [15:0] data_out_from_register_to_argmax;
+	wire [3:0] addr_register_write_second_layer;
+	wire [6:0] addr_register_write_first_layer;
 	
+	/**********************************************************
+	Registradores e fios de controle
+	**********************************************************/
+	wire [4:0] first_layer_iteration_counter;
+	wire first_layer_iteration_done;
+	wire enable_register_write_first_layer;
+	wire second_layer_iteration_done, second_layer_iteration_counter;
+	wire enable_register_write_second_layer;
+	wire argmax_iteration_done;
+	reg enable_first_layer, enable_second_layer, enable_argmax;
+	reg rst_argmax, rst_first_layer, rst_second_layer;
+	wire rst_fr_layer, rst_sd_layer, rst_agm;
 	
+	/*************************************************************
+	Registrador de estados
+	*************************************************************/
+	reg [2:0] state;
 	
 	always @(posedge clk or posedge rst) begin
 		if (rst) begin
@@ -102,8 +121,9 @@ module neural_unit(
 	end
 
 	
-	reg enable_first_layer, enable_second_layer, enable_argmax;
-	reg rst_argmax, rst_first_layer, rst_second_layer;
+	/*****************************************************
+	Logica sequencial da FMS
+	*****************************************************/
 	
 	always @(*) begin
 		case (state)
@@ -139,13 +159,18 @@ module neural_unit(
 	end
 	
 	
-	wire rst_fr_layer, rst_sd_layer, rst_agm;
+	/***************************
+	atribuição do rst dos modulos
+	***************************/
 	
 	assign rst_fr_layer = rst_first_layer | rst;
 	assign rst_sd_layer = rst_second_layer | rst;
 	assign rst_agm = rst_argmax | rst;
 	
-	
+	/*****************************************************
+	Instanciamento da primeira camada da rede neural
+	*****************************************************/
+
 	first_layer fr_layer(
 		.enable(enable_first_layer),
 		.clk(clk),
@@ -168,6 +193,10 @@ module neural_unit(
 		.addr_to_raw_in_register(addr_register_write_first_layer),
 		.enable_register_write(enable_register_write_first_layer),
 	);
+
+	/*****************************************************
+	Instanciamento do primeiro banco de registradores
+	*****************************************************/
 	
 	reg_bank128 reg_first_layer(
         .addr_r(addr_register_read_second_layer),
@@ -177,8 +206,11 @@ module neural_unit(
         .wr_en(enable_register_write_first_layer),
         .clk(clk)
     );
-	 
-	 second_layer sd_layer(
+	
+	/*****************************************************
+	Instanciamento da segunda camada da rede neural
+	*****************************************************/
+	second_layer sd_layer(
 		.addr_beta(addr_mem_beta),
 		.addr_register(addr_register_read_second_layer),
 		.data_in_beta(data_in_beta),
@@ -194,6 +226,10 @@ module neural_unit(
 		.req_beta(req_beta),
 		.is_avaliable_beta(is_available_beta)
 	);
+
+	/*****************************************************
+	Instanciamento do segundo banco de registradores
+	*****************************************************/
 	
 	reg_bank10 reg_second_layer(
         .addr_r(addr_register_read_argmax),
@@ -203,7 +239,11 @@ module neural_unit(
         .wr_en(enable_register_write_second_layer),
         .clk(clk)
     );
-	 
+	
+	/*****************************************************
+	Instranciamento do modulo de argmax
+	*****************************************************/
+
 	 argmax_iterativo agm (
         .clk(clk),
         .rst(rst), 

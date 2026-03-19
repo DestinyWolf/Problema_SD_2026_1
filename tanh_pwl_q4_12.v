@@ -1,10 +1,22 @@
 module tanh_pwl_q4_12(
-    input signed [15:0] x,
-    output reg signed [15:0] y
+    x,
+    y
 );
+    /***************************
+    Entradas e saidas do modulo
+    ***************************/
+    input signed [15:0] x;
+    output reg signed [15:0] y;
 
+    /*****************************
+    Fios e registradores de dados
+    *****************************/
     reg signed [15:0] abs_x;
     reg signed [15:0] abs_y;
+
+    /*******************************************************************************
+    Logica da função de ativação aproximada por partes lineares
+    *******************************************************************************/
 
     always @(*) begin
         // PASSO 1: Obter o valor absoluto de x

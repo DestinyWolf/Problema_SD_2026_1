@@ -6,15 +6,23 @@
 **************************************************************/
 
 module reg_bank128 (
-    input wire clk,
-    input wire wr_en,             
-    
-    input wire [6:0] addr_w,              
-    input wire signed [15:0] data_in,     
-    
-    input wire [6:0] addr_r,              
-    output reg signed [15:0] data_out   
+    clk,
+    wr_en,             
+    addr_w,              
+    data_in,     
+    addr_r,              
+    data_out   
 );
+
+    /*****************************************************
+    Entradas e saidas do modulo
+    *****************************************************/
+    input wire clk;
+    input wire wr_en;             
+    input wire [6:0] addr_w;        
+    input wire signed [15:0] data_in;
+    input wire [6:0] addr_r;              
+    output reg signed [15:0] data_out; 
 
     //Declaraçao da matriz de registradores
     reg signed [15:0] memoria [0:127];
