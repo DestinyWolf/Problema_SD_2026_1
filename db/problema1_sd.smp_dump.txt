@@ -1,0 +1,70 @@
+
+State Machine - |problema1_sd|neural_unit:comb_64|state
+Name state.ARGMAX state.SECOND_LAYER state.FIRST_LAYER state.IDLE state.DONE 
+state.IDLE 0 0 0 0 0 
+state.FIRST_LAYER 0 0 1 1 0 
+state.SECOND_LAYER 0 1 0 1 0 
+state.ARGMAX 1 0 0 1 0 
+state.DONE 0 0 0 1 1 
+
+State Machine - |problema1_sd|neural_unit:comb_64|argmax_iterativo:agm|state
+Name state.IDLE state.EVALUATE state.REQUEST_DATA 
+state.IDLE 0 0 0 
+state.REQUEST_DATA 1 0 1 
+state.EVALUATE 1 1 0 
+
+State Machine - |problema1_sd|neural_unit:comb_64|second_layer:sd_layer|sd_fms_state
+Name sd_fms_state.DONE_IT sd_fms_state.INCREMENT sd_fms_state.WAIT_RES5 sd_fms_state.ST_RES5 sd_fms_state.WAIT_RES4 sd_fms_state.ST_RES4 sd_fms_state.WAIT_RES3 sd_fms_state.ST_RES3 sd_fms_state.WAIT_RES2 sd_fms_state.ST_RES2 sd_fms_state.WAIT_RES1 sd_fms_state.ST_RES1 sd_fms_state.VF_LAST_DATA 
+sd_fms_state.VF_LAST_DATA 0 0 0 0 0 0 0 0 0 0 0 0 0 
+sd_fms_state.ST_RES1 0 0 0 0 0 0 0 0 0 0 0 1 1 
+sd_fms_state.WAIT_RES1 0 0 0 0 0 0 0 0 0 0 1 0 1 
+sd_fms_state.ST_RES2 0 0 0 0 0 0 0 0 0 1 0 0 1 
+sd_fms_state.WAIT_RES2 0 0 0 0 0 0 0 0 1 0 0 0 1 
+sd_fms_state.ST_RES3 0 0 0 0 0 0 0 1 0 0 0 0 1 
+sd_fms_state.WAIT_RES3 0 0 0 0 0 0 1 0 0 0 0 0 1 
+sd_fms_state.ST_RES4 0 0 0 0 0 1 0 0 0 0 0 0 1 
+sd_fms_state.WAIT_RES4 0 0 0 0 1 0 0 0 0 0 0 0 1 
+sd_fms_state.ST_RES5 0 0 0 1 0 0 0 0 0 0 0 0 1 
+sd_fms_state.WAIT_RES5 0 0 1 0 0 0 0 0 0 0 0 0 1 
+sd_fms_state.INCREMENT 0 1 0 0 0 0 0 0 0 0 0 0 1 
+sd_fms_state.DONE_IT 1 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |problema1_sd|neural_unit:comb_64|second_layer:sd_layer|fr_fms_state
+Name fr_fms_state.WAIT_SD_FMS fr_fms_state.CALC fr_fms_state.ST_BETA5 fr_fms_state.RQ_BETA5 fr_fms_state.ST_BETA4 fr_fms_state.RQ_BETA4 fr_fms_state.ST_BETA3 fr_fms_state.RQ_BETA3 fr_fms_state.ST_BETA2 fr_fms_state.RQ_BETA2 fr_fms_state.ST_BETA1 fr_fms_state.RQ_BETA1 fr_fms_state.ST_REG fr_fms_state.RQ_REG 
+fr_fms_state.RQ_REG 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+fr_fms_state.ST_REG 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+fr_fms_state.RQ_BETA1 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+fr_fms_state.ST_BETA1 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+fr_fms_state.RQ_BETA2 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+fr_fms_state.ST_BETA2 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+fr_fms_state.RQ_BETA3 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+fr_fms_state.ST_BETA3 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+fr_fms_state.RQ_BETA4 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+fr_fms_state.ST_BETA4 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+fr_fms_state.RQ_BETA5 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+fr_fms_state.ST_BETA5 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+fr_fms_state.CALC 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+fr_fms_state.WAIT_SD_FMS 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |problema1_sd|neural_unit:comb_64|first_layer:fr_layer|sd_fms_state
+Name sd_fms_state.DONE_FMS sd_fms_state.INCREMENT sd_fms_state.WAIT_RES3 sd_fms_state.ST_RES3 sd_fms_state.WAIT_RES2 sd_fms_state.ST_RES2 sd_fms_state.WAIT_RES1 sd_fms_state.ST_RES1 sd_fms_state.WAIT_RES0 sd_fms_state.ST_RES0 sd_fms_state.SUM_BIAS sd_fms_state.ST_BIAS3 sd_fms_state.RQ_BIAS3 sd_fms_state.ST_BIAS2 sd_fms_state.RQ_BIAS2 sd_fms_state.ST_BIAS1 sd_fms_state.RQ_BIAS1 sd_fms_state.ST_BIAS0 sd_fms_state.RQ_BIAS0 sd_fms_state.VF_LAST_PIXEL 
+sd_fms_state.VF_LAST_PIXEL 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+sd_fms_state.RQ_BIAS0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+sd_fms_state.ST_BIAS0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+sd_fms_state.RQ_BIAS1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+sd_fms_state.ST_BIAS1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+sd_fms_state.RQ_BIAS2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+sd_fms_state.ST_BIAS2 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+sd_fms_state.RQ_BIAS3 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+sd_fms_state.ST_BIAS3 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+sd_fms_state.SUM_BIAS 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+sd_fms_state.ST_RES0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+sd_fms_state.WAIT_RES0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+sd_fms_state.ST_RES1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+sd_fms_state.WAIT_RES1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+sd_fms_state.ST_RES2 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+sd_fms_state.WAIT_RES2 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+sd_fms_state.ST_RES3 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+sd_fms_state.WAIT_RES3 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+sd_fms_state.INCREMENT 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+sd_fms_state.DONE_FMS 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 

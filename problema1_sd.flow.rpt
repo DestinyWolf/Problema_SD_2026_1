@@ -1,5 +1,5 @@
 Flow report for problema1_sd
-Mon Mar 16 19:01:15 2026
+Tue Mar 24 16:40:00 2026
 Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
 
 
@@ -41,21 +41,21 @@ on the Quartus Prime software download page.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Mon Mar 16 19:01:12 2026           ;
+; Flow Status                        ; Successful - Tue Mar 24 16:39:57 2026           ;
 ; Quartus Prime Version              ; 25.1std.0 Build 1129 10/21/2025 SC Lite Edition ;
 ; Revision Name                      ; problema1_sd                                    ;
 ; Top-level Entity Name              ; problema1_sd                                    ;
 ; Family                             ; Cyclone IV GX                                   ;
 ; Device                             ; EP4CGX150DF31C7                                 ;
 ; Timing Models                      ; Final                                           ;
-; Total logic elements               ; 2,699 / 149,760 ( 2 % )                         ;
-;     Total combinational functions  ; 2,576 / 149,760 ( 2 % )                         ;
-;     Dedicated logic registers      ; 914 / 149,760 ( < 1 % )                         ;
-; Total registers                    ; 914                                             ;
+; Total logic elements               ; 793 / 149,760 ( < 1 % )                         ;
+;     Total combinational functions  ; 742 / 149,760 ( < 1 % )                         ;
+;     Dedicated logic registers      ; 343 / 149,760 ( < 1 % )                         ;
+; Total registers                    ; 343                                             ;
 ; Total pins                         ; 339 / 508 ( 67 % )                              ;
 ; Total virtual pins                 ; 0                                               ;
-; Total memory bits                  ; 2,142,368 / 6,635,520 ( 32 % )                  ;
-; Embedded Multiplier 9-bit elements ; 18 / 720 ( 3 % )                                ;
+; Total memory bits                  ; 2,140,160 / 6,635,520 ( 32 % )                  ;
+; Embedded Multiplier 9-bit elements ; 0 / 720 ( 0 % )                                 ;
 ; Total GXB Receiver Channel PCS     ; 0 / 8 ( 0 % )                                   ;
 ; Total GXB Receiver Channel PMA     ; 0 / 8 ( 0 % )                                   ;
 ; Total GXB Transmitter Channel PCS  ; 0 / 8 ( 0 % )                                   ;
@@ -69,7 +69,7 @@ on the Quartus Prime software download page.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 03/16/2026 19:00:36 ;
+; Start date & time ; 03/24/2026 16:39:29 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; problema1_sd        ;
 +-------------------+---------------------+
@@ -80,7 +80,7 @@ on the Quartus Prime software download page.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 182713338090218.177369843632446        ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 262102644758737.177438116962229        ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
 ; MISC_FILE                           ; ram_img_bb.v                           ; --            ; --          ; --         ;
@@ -100,11 +100,11 @@ on the Quartus Prime software download page.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:14     ; 1.0                     ; 867 MB              ; 00:00:33                           ;
-; Fitter               ; 00:00:15     ; 1.3                     ; 2403 MB             ; 00:00:30                           ;
-; Assembler            ; 00:00:03     ; 1.0                     ; 686 MB              ; 00:00:03                           ;
-; Timing Analyzer      ; 00:00:02     ; 2.0                     ; 1081 MB             ; 00:00:03                           ;
-; Total                ; 00:00:34     ; --                      ; --                  ; 00:01:09                           ;
+; Analysis & Synthesis ; 00:00:11     ; 1.0                     ; 793 MB              ; 00:00:30                           ;
+; Fitter               ; 00:00:11     ; 1.2                     ; 2335 MB             ; 00:00:20                           ;
+; Assembler            ; 00:00:03     ; 1.0                     ; 685 MB              ; 00:00:03                           ;
+; Timing Analyzer      ; 00:00:02     ; 1.7                     ; 1020 MB             ; 00:00:02                           ;
+; Total                ; 00:00:27     ; --                      ; --                  ; 00:00:55                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

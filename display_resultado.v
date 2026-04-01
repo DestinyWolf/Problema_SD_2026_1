@@ -1,12 +1,12 @@
 module display_resultado (
-    input wire [3:0] resultado_bin, // Vem da saída 'predicted_digit' do Argmax
-    output reg [6:0] hex_out        // Vai ligado diretamente ao pino físico HEX7
+    resultado_bin, // Vem da saída 'predicted_digit' do Argmax
+    hex_out        // Vai ligado diretamente ao pino físico HEX7
 );
     /*
     Entradas e saidas do modulo
     */
-    input wire [3:0] resultado_bin, // Vem da saída 'predicted_digit' do Argmax
-    output reg [6:0] hex_out        // Vai ligado diretamente ao pino físico HEX7
+    input wire [3:0] resultado_bin; // Vem da saída 'predicted_digit' do Argmax
+    output reg [6:0] hex_out ;       // Vai ligado diretamente ao pino físico HEX7
 
     // Mapeamento dos segmentos: {g, f, e, d, c, b, a}
     // 0 = Acende, 1 = Apaga

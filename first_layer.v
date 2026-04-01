@@ -113,7 +113,7 @@ module first_layer(
 				data_b_win[2] <= 16'd0;
 				data_b_win[3] <= 16'd0;
 		  end else if (enable) begin
-				case (fr_fms_state)
+				/*case (fr_fms_state)
 					 RQ_PIXEL: begin
 						 if (is_avaliable_pixel) begin
 							fr_fms_state <= ST_PIXEL;
@@ -121,7 +121,7 @@ module first_layer(
 					 end
 					 ST_PIXEL: begin 
 						  data_a_pixel <= data_in_pixel;
-						  if (is_avaliable_pixel) begin /*handshake*/
+						  if (is_avaliable_pixel) begin /*handshake
 								fr_fms_state <= ST_PIXEL;
 						  end else begin
 								fr_fms_state <= RQ_WIN0;
@@ -182,14 +182,14 @@ module first_layer(
 						fr_fms_state <= WAIT_SD_FMS;
 					 end
 					 WAIT_SD_FMS: begin
-						  if (iteration_done) begin 
+						  if (iteration_done) 
 								fr_fms_state <= RQ_PIXEL;
-						end
+		
 					 end
-					 default: begin 
-						fr_fms_state <= RQ_PIXEL;
-					 end
-				endcase 
+					 //default: begin 
+					//	fr_fms_state <= RQ_PIXEL;
+					 //end
+				endcase*/ 
 		  end
 	 end
     
