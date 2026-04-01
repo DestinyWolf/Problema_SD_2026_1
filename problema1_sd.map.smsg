@@ -1,5 +1,0 @@
-Warning (10268): Verilog HDL information at second_layer.v(89): always construct contains both blocking and non-blocking assignments File: /home/kake/Documentos/Problema_SD_2026_1/second_layer.v Line: 89
-Warning (10268): Verilog HDL information at second_layer.v(336): always construct contains both blocking and non-blocking assignments File: /home/kake/Documentos/Problema_SD_2026_1/second_layer.v Line: 336
-Warning (10268): Verilog HDL information at reg_bank128.v(31): always construct contains both blocking and non-blocking assignments File: /home/kake/Documentos/Problema_SD_2026_1/reg_bank128.v Line: 31
-Warning (10268): Verilog HDL information at reg_bank10.v(30): always construct contains both blocking and non-blocking assignments File: /home/kake/Documentos/Problema_SD_2026_1/reg_bank10.v Line: 30
-Info (10281): Verilog HDL Declaration information at neural_unit.v(37): object "done" differs only in case from object "DONE" in the same scope File: /home/kake/Documentos/Problema_SD_2026_1/neural_unit.v Line: 37
