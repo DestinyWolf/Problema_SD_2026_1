@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Wed Apr  1 15:04:12 2026
+Analysis & Synthesis Status : Successful - Thu Apr 23 16:55:37 2026
 Quartus Prime Version : 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
 Revision Name : main
-Top-level Entity Name : ELM_on_DE1_SoC
+Top-level Entity Name : CoProcessor
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 1007
-Total pins : 67
+Total registers : 923
+Total pins : 68
 Total virtual pins : 0
-Total block memory bits : 2,142,368
+Total block memory bits : 1,636,640
 Total DSP Blocks : 10
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0

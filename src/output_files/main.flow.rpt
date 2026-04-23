@@ -1,5 +1,5 @@
 Flow report for main
-Wed Apr  1 15:05:11 2026
+Thu Apr 23 16:56:42 2026
 Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
 
 
@@ -41,18 +41,18 @@ on the Quartus Prime software download page.
 +-----------------------------------------------------------------------------------+
 ; Flow Summary                                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Flow Status                     ; Successful - Wed Apr  1 15:05:03 2026           ;
+; Flow Status                     ; Successful - Thu Apr 23 16:56:36 2026           ;
 ; Quartus Prime Version           ; 25.1std.0 Build 1129 10/21/2025 SC Lite Edition ;
 ; Revision Name                   ; main                                            ;
-; Top-level Entity Name           ; ELM_on_DE1_SoC                                  ;
+; Top-level Entity Name           ; CoProcessor                                     ;
 ; Family                          ; Cyclone V                                       ;
 ; Device                          ; 5CSEMA5F31C6                                    ;
 ; Timing Models                   ; Final                                           ;
-; Logic utilization (in ALMs)     ; 1,189 / 32,070 ( 4 % )                          ;
-; Total registers                 ; 1023                                            ;
-; Total pins                      ; 67 / 457 ( 15 % )                               ;
+; Logic utilization (in ALMs)     ; 857 / 32,070 ( 3 % )                            ;
+; Total registers                 ; 823                                             ;
+; Total pins                      ; 68 / 457 ( 15 % )                               ;
 ; Total virtual pins              ; 0                                               ;
-; Total block memory bits         ; 2,142,368 / 4,065,280 ( 53 % )                  ;
+; Total block memory bits         ; 1,636,640 / 4,065,280 ( 40 % )                  ;
 ; Total DSP Blocks                ; 10 / 87 ( 11 % )                                ;
 ; Total HSSI RX PCSs              ; 0                                               ;
 ; Total HSSI PMA RX Deserializers ; 0                                               ;
@@ -68,32 +68,28 @@ on the Quartus Prime software download page.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/01/2026 15:03:59 ;
+; Start date & time ; 04/23/2026 16:55:29 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; main                ;
 +-------------------+---------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                           ;
-+-------------------------------------+----------------------------------------+---------------+----------------+------------+
-; Assignment Name                     ; Value                                  ; Default Value ; Entity Name    ; Section Id ;
-+-------------------------------------+----------------------------------------+---------------+----------------+------------+
-; COMPILER_SIGNATURE_ID               ; 262102644758737.177506663952483        ; --            ; --             ; --         ;
-; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --             ; --         ;
-; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --             ; --         ;
-; MISC_FILE                           ; memory_files/ram_beta_bb.v             ; --            ; --             ; --         ;
-; MISC_FILE                           ; memory_files/ram_bias_bb.v             ; --            ; --             ; --         ;
-; MISC_FILE                           ; memory_files/ram_img_bb.v              ; --            ; --             ; --         ;
-; MISC_FILE                           ; memory_files/ram_win_bb.v              ; --            ; --             ; --         ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; ELM_on_DE1_SoC ; Top        ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; ELM_on_DE1_SoC ; Top        ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; ELM_on_DE1_SoC ; Top        ;
-; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --            ; --             ; --         ;
-; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --             ; --         ;
-; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --             ; --         ;
-; TOP_LEVEL_ENTITY                    ; ELM_on_DE1_SoC                         ; main          ; --             ; --         ;
-+-------------------------------------+----------------------------------------+---------------+----------------+------------+
++-------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                        ;
++-------------------------------------+----------------------------------------+---------------+-------------+------------+
+; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
++-------------------------------------+----------------------------------------+---------------+-------------+------------+
+; COMPILER_SIGNATURE_ID               ; 230964109098125.177697412941841        ; --            ; --          ; --         ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; CoProcessor ; Top        ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; CoProcessor ; Top        ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; CoProcessor ; Top        ;
+; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --            ; --          ; --         ;
+; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --         ;
+; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --          ; --         ;
+; TOP_LEVEL_ENTITY                    ; CoProcessor                            ; main          ; --          ; --         ;
++-------------------------------------+----------------------------------------+---------------+-------------+------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------+
@@ -101,11 +97,11 @@ on the Quartus Prime software download page.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:12     ; 1.0                     ; 873 MB              ; 00:00:30                           ;
-; Fitter               ; 00:00:44     ; 1.7                     ; 2859 MB             ; 00:03:51                           ;
-; Assembler            ; 00:00:05     ; 1.0                     ; 774 MB              ; 00:00:05                           ;
-; Timing Analyzer      ; 00:00:07     ; 4.7                     ; 1308 MB             ; 00:00:24                           ;
-; Total                ; 00:01:08     ; --                      ; --                  ; 00:04:50                           ;
+; Analysis & Synthesis ; 00:00:07     ; 1.0                     ; 837 MB              ; 00:00:16                           ;
+; Fitter               ; 00:00:52     ; 1.4                     ; 2584 MB             ; 00:03:07                           ;
+; Assembler            ; 00:00:04     ; 1.0                     ; 770 MB              ; 00:00:04                           ;
+; Timing Analyzer      ; 00:00:05     ; 3.6                     ; 1235 MB             ; 00:00:17                           ;
+; Total                ; 00:01:08     ; --                      ; --                  ; 00:03:44                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

@@ -1,16 +1,16 @@
-Fitter Status : Successful - Wed Apr  1 15:04:56 2026
+Fitter Status : Successful - Thu Apr 23 16:56:30 2026
 Quartus Prime Version : 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
 Revision Name : main
-Top-level Entity Name : ELM_on_DE1_SoC
+Top-level Entity Name : CoProcessor
 Family : Cyclone V
 Device : 5CSEMA5F31C6
 Timing Models : Final
-Logic utilization (in ALMs) : 1,189 / 32,070 ( 4 % )
-Total registers : 1023
-Total pins : 67 / 457 ( 15 % )
+Logic utilization (in ALMs) : 857 / 32,070 ( 3 % )
+Total registers : 823
+Total pins : 68 / 457 ( 15 % )
 Total virtual pins : 0
-Total block memory bits : 2,142,368 / 4,065,280 ( 53 % )
-Total RAM Blocks : 264 / 397 ( 66 % )
+Total block memory bits : 1,636,640 / 4,065,280 ( 40 % )
+Total RAM Blocks : 204 / 397 ( 51 % )
 Total DSP Blocks : 10 / 87 ( 11 % )
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0

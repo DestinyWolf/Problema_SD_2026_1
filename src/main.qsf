@@ -39,12 +39,18 @@
 
 set_global_assignment -name FAMILY "Cyclone V"
 set_global_assignment -name DEVICE 5CSEMA5F31C6
-set_global_assignment -name TOP_LEVEL_ENTITY ELM_on_DE1_SoC
+set_global_assignment -name TOP_LEVEL_ENTITY CoProcessor
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 25.1STD.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "14:57:28  ABRIL 01, 2026"
 set_global_assignment -name LAST_QUARTUS_VERSION "25.1std.0 Lite Edition"
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name BOARD "DE1-SoC Board"
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name VERILOG_FILE aux_files/lsu_controller.v
+set_global_assignment -name VERILOG_FILE CoProcessor.v
 set_global_assignment -name VERILOG_FILE aux_files/display_resultado.v
 set_global_assignment -name VERILOG_FILE aux_files/mac_first_layer.v
 set_global_assignment -name VERILOG_FILE aux_files/mac_second_layer.v
@@ -55,19 +61,6 @@ set_global_assignment -name VERILOG_FILE inference_unit/argmax_iterativo.v
 set_global_assignment -name VERILOG_FILE inference_unit/first_layer.v
 set_global_assignment -name VERILOG_FILE inference_unit/neural_unit.v
 set_global_assignment -name VERILOG_FILE inference_unit/second_layer.v
-set_global_assignment -name QIP_FILE memory_files/ram_beta.qip
-set_global_assignment -name VERILOG_FILE memory_files/ram_beta.v
-set_global_assignment -name QIP_FILE memory_files/ram_bias.qip
-set_global_assignment -name VERILOG_FILE memory_files/ram_bias.v
-set_global_assignment -name QIP_FILE memory_files/ram_img.qip
-set_global_assignment -name VERILOG_FILE memory_files/ram_img.v
-set_global_assignment -name QIP_FILE memory_files/ram_win.qip
-set_global_assignment -name VERILOG_FILE memory_files/ram_win.v
-set_global_assignment -name VERILOG_FILE ELM_on_DE1_SoC.v
-set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
-set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
-set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
-set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
