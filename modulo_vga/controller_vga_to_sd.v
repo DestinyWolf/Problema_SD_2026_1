@@ -1,5 +1,4 @@
 module controller_vga_to_sd(
-op,
 posx,
 posy,
 enable,
@@ -16,33 +15,31 @@ vga_clk,
 vga_red,
 vga_green,
 vga_blue,
-color_out, done
+done
 
 );
-	input op;
 	input [8:0] posx;
 	input [7:0] posy;
 	input [2:0] red, green, blue;
 	input clk, rst, enable;
 	output hs, vs, sync, blank, vga_clk;
 	output [7:0] vga_red, vga_blue, vga_green;
-	output [8:0] color_out;
 	output reg done;
-	
-	
-	localparam IDLE=2'b00, READ=2'b01, WRITE=2'b10, DONE=2'b11;
-	
+
+
+	localparam IDLE=2'b00, WRITE=2'b10, DONE=2'b11;
+
 	wire [9:0] next_x, next_y;
 	wire clk100, clk25;
-	reg [16:0] mem_addr_wr, mem_addr_rd;
-	
+    reg [16:0] mem_addr_wr;
+
 	reg [1:0] state;
 	wire [1:0] lsu_done;
-	
+
 	reg [1:0] lsu_enable;
 	reg enable_write;
 	reg [8:0] color_in;
-	
+
 	always @(posedge clk) begin
 		if (rst) begin
 			state <= IDLE;
@@ -53,29 +50,18 @@ color_out, done
 				IDLE: begin
 					if (enable) begin
 					done <= 1'b0;
-						if (op == 1'b0) begin
-							state <= READ;
-							lsu_enable[0] <= 1'b1;
-						end else begin
-							state <= WRITE;
-							lsu_enable <= 2'b11;
-						end
+
+					state <= WRITE;
+					lsu_enable <= 2'b11;
 					end
 				end
-				READ: begin
-					if (lsu_done[1]) begin
-						state <= DONE;
-						lsu_enable[0] <= 1'b0;
-					end
-				end
-				
 				WRITE: begin
 					if(lsu_done[1]) begin
 						state <= DONE;
 						lsu_enable <= 2'b00;
 					end
 				end
-				
+
 				DONE: begin
 					state <= IDLE;
 					done <= 1'b1;
@@ -86,35 +72,32 @@ color_out, done
 			endcase
 		end
 	end
-	
-	
+
+
 	always @(*) begin
 		enable_write = 1'b0;
 		color_in = 9'b0;
 		case(state)
-			READ: begin
-				mem_addr_rd = posx + (320*posy);
-			end
 			WRITE: begin
 				color_in = {red, green, blue};
 				mem_addr_wr = posx + (320*posy);
 				enable_write = 1'b1;
-				
+
 			end
 			DONE: begin
 				enable_write = 1'b0;
 			end
 		endcase
 	end
-	
+
 	reg [16:0] addr_vga_rd;
-	
-	
+
+
 	always @(posedge clk25) begin
 		addr_vga_rd <= (next_x>>1) + ((next_y>>1)*320);
-	
+
 	end
-	
+
 	//preciso de um pll de 100 e de 25
 	pll01 (
 		 .refclk(clk),   //  refclk.clk
@@ -123,7 +106,7 @@ color_out, done
 		 .outclk_1(clk25), // outclk1.clk
 		 .locked()    //  locked.export
 	);
-	
+
 	lsu_controller #( .DATA_WIDTH(9),
 		  .MEM_SIZE(76800),
 		  .CYCLES_PER_OP(3),
@@ -131,18 +114,18 @@ color_out, done
 		  .RAM_TYPE("AUTO"),
 		  .INIT_FILE("")) usermemory(
 		 .addr_write(mem_addr_wr),
-		 .addr_read(mem_addr_rd),
+		 .addr_read(),
 		 .clk(clk100),
 		 .write_en(enable_write),
 		 .data_in(color_in),
-		 .data_out(color_out),
+		 .data_out(),
 		 .done(lsu_done[0]),
 		 .enable(lsu_enable[0]),
 		 .rst(rst)
 	);
-	
+
 	wire [8:0] color_to_vga;
-	
+
 	lsu_controller #( .DATA_WIDTH(9),
 		  .MEM_SIZE(76800),
 		  .CYCLES_PER_OP(3),
@@ -159,7 +142,7 @@ color_out, done
 		 .enable(lsu_enable[1]),
 		 .rst(rst)
 	);
-	
+
 	vga_driver (
      .clock(clk25),     // 25 MHz
      .reset(rst),     // Active high
@@ -175,6 +158,6 @@ color_out, done
      .clk(vga_clk),           // CLK to VGA connector
      .blank(blank)          // BLANK to VGA connector
 );
-	
+
 
 endmodule
