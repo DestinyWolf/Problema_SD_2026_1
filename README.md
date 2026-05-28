@@ -3,7 +3,7 @@
 <div align="center">
 <h1>
 
-[Estrutura Implementada](#estrutura-implementada) | [ISA](#conjunto-de-instruções-isa) | [Barramentos](#barramentos)
+[Estrutura Implementada](#estrutura-implementada) | [ISA](#conjunto-de-instruções-isa) | [Barramentos](#barramentos)  | [Modulo Vga](#modulo-vga)
 
 </h1>
 </div>
