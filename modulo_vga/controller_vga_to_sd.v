@@ -1,21 +1,25 @@
+/*Modulo VGA desenvolvido para a materia de sistemas digitais
+* por Maike de Oliveira Nascimento*/
+
+
 module controller_vga_to_sd(
-posx,
-posy,
-enable,
-red,
-green,
-blue,
-clk,
-rst,
-hs,
-vs,
-sync,
-blank,
-vga_clk,
-vga_red,
-vga_green,
-vga_blue,
-done
+posx, /*Posição no eixo x do pixel*/
+posy, /*Posição no eixo y do pixel*/
+enable, /*Habilitação da escrita de um novo pixel*/
+red, /*Cor vermelha a ser escrita*/
+green, /*Cor verde a ser escrita*/
+blue, /*Cor azul a ser escrita*/
+clk, /*Clock de 50 MHz vindo da placa*/
+rst, /*Sinal de reset para o modulo*/
+hs, /*Sinconização horizontal da saida VGA*/
+vs, /*Sinconização Vertical da saida VGA*/
+sync, /*Sinal de sync da saida VGA*/
+blank, /*Sinal de Blank da saida VGA*/
+vga_clk, /*Sinal de CLK do VGA*/
+vga_red, /*Canal vermelho do VGA*/
+vga_green, /*Canal verde do VGA*/
+vga_blue, /*Canal azul do VGA*/
+done /*Sinal de done emitido pelo modulo apos escrever uma cor na memoria*/
 
 );
 	input [8:0] posx;
@@ -27,11 +31,11 @@ done
 	output reg done;
 
 
-	localparam IDLE=2'b00, WRITE=2'b10, DONE=2'b11;
+	localparam IDLE=2'b00, WRITE=2'b01, DONE=2'b10;
 
-	wire [9:0] next_x, next_y;
-	wire clk100, clk25;
-    reg [16:0] mem_addr_wr;
+	wire [9:0] next_x, next_y; /*Endereço do proximo pixel a ser lido pelo modulo VGA*/
+	wire clk100, clk25; /*clks internos utilizados pelo modulo VGA e pelas memorias*/
+    reg [16:0] mem_addr_wr; /*Endereço de escrita */
 
 	reg [1:0] state;
 	wire [1:0] lsu_done;
@@ -80,8 +84,8 @@ done
 		case(state)
 			WRITE: begin
 				color_in = {red, green, blue};
-				mem_addr_wr = posx + (320*posy);
-				enable_write = 1'b1;
+                mem_addr_wr = posx + (320*posy); /*Calculo do endereço a qual o pixel será escrito*/
+				enable_write = 1'b1; /*Sinal de habilitação escrita*/
 
 			end
 			DONE: begin
@@ -98,7 +102,7 @@ done
 
 	end
 
-	//preciso de um pll de 100 e de 25
+	/*Pll para geração dos clocks de 100 e 25 MHz*/
 	pll01 (
 		 .refclk(clk),   //  refclk.clk
 		 .rst(rst),      //   reset.reset
@@ -107,6 +111,7 @@ done
 		 .locked()    //  locked.export
 	);
 
+    /*Controlador de memoria para dados vindos do usuario*/
 	lsu_controller #( .DATA_WIDTH(9),
 		  .MEM_SIZE(76800),
 		  .CYCLES_PER_OP(3),
@@ -126,6 +131,7 @@ done
 
 	wire [8:0] color_to_vga;
 
+    /*Controlador de memoria para dados que vão ser lidos pelo modulo VGA*/
 	lsu_controller #( .DATA_WIDTH(9),
 		  .MEM_SIZE(76800),
 		  .CYCLES_PER_OP(3),
@@ -143,6 +149,7 @@ done
 		 .rst(rst)
 	);
 
+    /*Driver VGA*/
 	vga_driver (
      .clock(clk25),     // 25 MHz
      .reset(rst),     // Active high
@@ -157,7 +164,7 @@ done
      .sync(sync),          // SYNC to VGA connector
      .clk(vga_clk),           // CLK to VGA connector
      .blank(blank)          // BLANK to VGA connector
-);
+    );
 
 
 endmodule
