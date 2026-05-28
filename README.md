@@ -361,7 +361,7 @@ O coprocessador possui tres barramentos principais, dois de entrada e um de said
 
 Barramento | Tamanho | Descrição
 :---: | :---: | :---
-Data In | 32 | Barramento de dados de entrada  
+Data In | 32 | Barramento de dados de entrada
 Signals | 3 | Barramento para envio de sinais de controle externos ao coprocessador
 Data Out | 32 | Barramento de dados de saida
 
@@ -400,9 +400,20 @@ Barramento de saida de dados do coprocessador, possui largura de 32 bits, entret
 - O 5 bit é a flag de **Done**, esta flag é ativada sempre que uma operação é concluida e permanece ativada até que uma nova instrução comece a ser executada.
 - O 6 bit é a flag de **Busy**, indica que uma operação ainda esta sendo executada pelo coprocessador.
 - o 7 bit é a flag de **Error**, indica que a instrução anterior não foi executada corretamente, mesmo que tenha sido concluida o seu resultado não é confiavel.
-  
+
 > [!WARNING]
 > Mesmo que uma operação seja concluida, caso o sinal de enable ainda esteja em nivel logico alto, a flag de **Done** não sera acionada até que o sinal retorne ao nivel logico baixo, evitando a execução de instruções erroneamente, ou que execute a mesma instrução novamente.
+
+</details>
+
+##Modulo VGA
+
+<details>
+<sumary><h2>Modulo VGA</h2></sumary>
+
+O modulo VGA desenvolvido para ser utilizado durante a terceira fase que está disponivel na pasta *modulo_vga* consegue desenhar até 512 cores em uma grade de 320x240 pixeis
+Para sua utilização é necessario apenas a realização de sua instanciação e a correta alocação de pios para o modulo, obedecendo o tamanho de cada barramento e a disposição deles.
+
 
 </details>
 </details>
