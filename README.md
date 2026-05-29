@@ -58,6 +58,7 @@ Dentro do modulo da unidade de controle é realizada a decodificação da instru
 Os tipos de instrução serão abordados na seção [Conjunto de Instruções (ISA)](#conjunto-de-instruções-isa). Durante a execução de uma instrução nenhuma outra podera ser executada, sendo assim, é necessaria aguardar o termino de uma instrução para que seja possivel enviar outra.
 
 > [!WARNING]
+> 
 > Caso uma instrução seja enviada enquanto o coprocessador está executando outra, a flag de erro poderá ser ativada.
 
 Ao fim da execução da instrução o coprocessador retornara ao estado `IDLE` permitindo assim a leitura de uma nova instrução.
@@ -88,6 +89,7 @@ A primeira camada abriga 4 acumuladores, registradores de dados e a função de 
 Para completar o calculo de todos os neuronios da primeira camada é necessario 32 passos
 
 > [!NOTE]
+> 
 > Entenda como passo, todo o processo de calculo dos neuronios contidos nessa camada, neste caso 4
 
 Cada passo necessita individualmente de 18844 ciclos de clock para ser executado totalmente.
@@ -96,6 +98,7 @@ A geração dos endereçamentos de leitura das memorias é feito dentro da prime
 Alem da função de ativação e dos acumuladores, a primeira camada conta com duas maquinas de estado responsaveis por gerenciar o fluxo de execução dos passos e emitir as flags de termino, solicitação de dado e demais handshakes de controle para evitar a leitura incorreta de dados.
 
 > [!NOTE]
+> 
 > A função de ativação implementada foi a Tangente Hiperbolica, para sua implementação foi utilizada a tecnica de aproximação linear por partes.
 
 </details>
@@ -118,6 +121,7 @@ A segunda camada, assim como a primeira armazena seus acumuladores, registradore
 Possui 5 neuronios e necessita de apenas 2 passos para realizar o calculo de todos da camada de saida. Faz o gerenciamento dos endereçamentos de leitura das memorias e ogerenciamento dos endereçamentos de escrita no banco de registradores. Para essa organização conta com duas FMS semelhantes a da primeira camada.
 
 > [!WARNING]
+> 
 > A Camada de saida não possui função de ativação, sabendo disto, o modulo da segunda camada não implementa nenhum modulo para calculo de uma possivel função de ativação.
 
 </details>
@@ -153,6 +157,7 @@ mem_beta | Instancia do LSU responsavel por armazenar 1280 valores de 16 bits co
 Cada instancia de memoria implementada possui largura e profundidade distintas.
 
 > [!WARNING]
+> 
 > Antes de realizar a operação de leitura ou escrita em uma das memorias verificar o numero de endereços validos, caso seja enviado um dado para um endereço não valido a flag de erro será ativada.
 
 </details>
@@ -237,9 +242,11 @@ OP Code | 3 | Codigo da Instrução
 Endereçamento | 17 | Endereço de memoria onde será armazenado o peso a ser enviado
 
 > [!WARNING]
+> 
 > Essa instrução não ativa a flag de done e por se tratar do armazenamento de um valor em um registrador não necessita de espera.
 
 > [!NOTE]
+> 
 > Essa instrução é uma exceção as instruções de memoria, sua execução leva, geralmente, 2 ciclos.
 
 </details>
@@ -336,6 +343,7 @@ Dado | 16 | Valor a ser armazenado na memoria
 O coprocessador possui uma unica instrução de controle que é a `Start`. O tempo de execução é o tempo de execução da inferencia + 2 ciclos de clock.
 
 > [!NOTE]
+> 
 > Ao fim da execução da inferencia a flag de done será ativa e o resultado da inferencia será posto no barramento de saida.
 
 #### Start
@@ -416,6 +424,7 @@ Barramento de saida de dados do coprocessador, possui largura de 32 bits, entret
 - o 7 bit é a flag de **Error**, indica que a instrução anterior não foi executada corretamente, mesmo que tenha sido concluida o seu resultado não é confiavel.
 
 > [!WARNING]
+> 
 > Mesmo que uma operação seja concluida, caso o sinal de enable ainda esteja em nivel logico alto, a flag de **Done** não sera acionada até que o sinal retorne ao nivel logico baixo, evitando a execução de instruções erroneamente, ou que execute a mesma instrução novamente.
 
 </details>
@@ -454,6 +463,12 @@ vga_blue      | 8 bits  | Saida dos sinais do canal azul para a porta VGA
 done          | 1 bit   | Saida do sinal de done emitida pelo modulo após escrever um pixel na memória
 
 > [!WARNING]
+> 
 > Para o sinal de `clk` deve ser utilizado um dos clocks de **50 MHz** que a placa possui, Utilizar outro sinal de clock com valor diferentes pode resultar no não funcionamento do modulo
 
 </details>
+
+
+> [!WARNING]
+> 
+> Para o sinal de `clk` deve ser utilizado um dos clocks de **50 MHz** que a placa possui, Utilizar outro sinal de clock com valor diferentes pode resultar no não funcionamento do modulo
