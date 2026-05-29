@@ -13,7 +13,7 @@
 
 
 <details>
-<sumary><h1>CoProcessador</h1></sumary>
+<summary><h1>CoProcessador</h1></summary>
 <div align="center">
 <h1>
 
@@ -25,7 +25,7 @@
 ## Estrutura Implementada
 
 <details>
-<sumary><h2>Estrutura Implementada</h2></sumary>
+<summary><h2>Estrutura Implementada</h2></summary>
 
 O Processador implementado possui tres modulos principais:
 
@@ -50,7 +50,7 @@ Cada uma dessas unidade possui responsabilidade e barramentos de entradas e said
 ### Unidade de Controle
 
 <details>
-<sumary><h3>Unidade de Controle</h3></sumary>
+<summary><h3>Unidade de Controle</h3></summary>
 
 O modulo da unidade de controle se conecta a todo coprocessador e fica responsavel por receber as instruções e sinais de controle externo bem como retornar as flags de controle e o resultado das operações. A entrada de dados e instruções no coprocessador é feita atraves do barramento `Data In` e a saida de dados é feita atraves do barramento `Data Out`, esses barramentos serão detalhados na seção de [Barramentos](#barramentos).
 
@@ -66,7 +66,7 @@ Ao fim da execução da instrução o coprocessador retornara ao estado `IDLE` p
 ### Unidade de Inferencia
 
 <details>
-<sumary><h3>Unidade de Inferencia</h3></sumary>
+<summary><h3>Unidade de Inferencia</h3></summary>
 
 A unidade de inferencia é o modulo responsanvel por abrigar os **MACs** e os bancos de registradores utilizados durante o processo de calculo. Este modulo pode ser divido em cinco submodulos
 
@@ -82,7 +82,7 @@ Unidade de controle de Inferencia | Modulo responsavel por organizar o execuçã
 #### Primeira Camada
 
 <details>
-<sumary><h5>Primeira Camada</h5></sumary>
+<summary><h5>Primeira Camada</h5></summary>
 
 A primeira camada abriga 4 acumuladores, registradores de dados e a função de ativação.
 Para completar o calculo de todos os neuronios da primeira camada é necessario 32 passos
@@ -103,7 +103,7 @@ Alem da função de ativação e dos acumuladores, a primeira camada conta com d
 #### Banco de registradores
 
 <details>
-<sumary><h5>Banco de Registradores</h5></sumary>
+<summary><h5>Banco de Registradores</h5></summary>
 
 Modulo que armazena um conjunto de registradores organizados em colunas onde é possivel realizar operações de leitura e escrita.
 
@@ -112,7 +112,7 @@ Modulo que armazena um conjunto de registradores organizados em colunas onde é 
 #### Segunda Camada
 
 <details>
-<sumary><h5>Segunda Camada</h5></sumary>
+<summary><h5>Segunda Camada</h5></summary>
 
 A segunda camada, assim como a primeira armazena seus acumuladores, registradores de dados e suas FMS(Maquinas de Estado Finito, Finite Machine State).
 Possui 5 neuronios e necessita de apenas 2 passos para realizar o calculo de todos da camada de saida. Faz o gerenciamento dos endereçamentos de leitura das memorias e ogerenciamento dos endereçamentos de escrita no banco de registradores. Para essa organização conta com duas FMS semelhantes a da primeira camada.
@@ -125,7 +125,7 @@ Possui 5 neuronios e necessita de apenas 2 passos para realizar o calculo de tod
 #### Argmax Iterativo
 
 <details>
-<sumary><h5>Argmax Iterativo</h5></sumary>
+<summary><h5>Argmax Iterativo</h5></summary>
 
 O argmax iterativo é um modulo comparador sequencial que faz a leitura do banco com 10 registradores e busca o registrador de maior valor, ao encontrar, armazena a posição daquele registrador e coloca em sua saida o valor armazenado.
 
@@ -137,7 +137,7 @@ O argmax iterativo é um modulo comparador sequencial que faz a leitura do banco
 ### Load/Store Unit
 
 <details>
-<sumary><h3>Load/Store Unit</h3></sumary>
+<summary><h3>Load/Store Unit</h3></summary>
 
 Este modulo é responsavel por gerenciar as operações de leitura e escrita de memoria. Se trata de um modulo de memoria generico que implementa a criação dinamica de memorias **RAM** de duas portas com base na familia do dispositivo e do tipo de memoria a ser utilizado.
 
@@ -161,7 +161,7 @@ Cada instancia de memoria implementada possui largura e profundidade distintas.
 ## Conjunto de Instruções (ISA)
 
 <details>
-<sumary><h2>Conjunto de Instruções (ISA)</h2></sumary>
+<summary><h2>Conjunto de Instruções (ISA)</h2></summary>
 
 O coprocessador implementado possui um pequeno conjunto de seis instruções, sendo cinco delas de [memoria](#instruções-de-memória) e uma instrução de [controle](#instruções-de-controle).
 
@@ -179,14 +179,14 @@ Instrução | OP Code | Função
 ### Instruções de Memória
 
 <details>
-<sumary><h4>Instruções de Memória</h4></sumary>
+<summary><h4>Instruções de Memória</h4></summary>
 
 As instruções de memoria levam em media cinco ciclos de clock para serem concluidas e ativam a flag de busy enquanto estão sendo executadas e a flag de done ao serem concluidas
 
 #### Store Image
 
 <details>
-<sumary><h5>Store Image</h5></sumary>
+<summary><h5>Store Image</h5></summary>
 
 Campos da instrução
 
@@ -214,7 +214,7 @@ Dado | 8 | Valor do pixel a ser armazenado na memoria
 #### Store Weights Addr
 
 <details>
-<sumary><h5>Store Weights Addr</h5></sumary>
+<summary><h5>Store Weights Addr</h5></summary>
 
 Campos da instrução
 
@@ -247,7 +247,7 @@ Endereçamento | 17 | Endereço de memoria onde será armazenado o peso a ser en
 #### Store Weights Value
 
 <details>
-<sumary><h5>Store Weights Value</h5></sumary>
+<summary><h5>Store Weights Value</h5></summary>
 
 Campos da instrução
 
@@ -274,7 +274,7 @@ Dado | 16 | Valor a ser armazenado na memoria
 #### Store Bias
 
 <details>
-<sumary><h5>Store Bias</h5></sumary>
+<summary><h5>Store Bias</h5></summary>
 
 Campos da instrução
 
@@ -302,7 +302,7 @@ Dado | 16 | Valor a ser armazenado na memoria
 #### Store Beta
 
 <details>
-<sumary><h5>Store Beta</h5></sumary>
+<summary><h5>Store Beta</h5></summary>
 
 Campos da instrução
 
@@ -331,7 +331,7 @@ Dado | 16 | Valor a ser armazenado na memoria
 ### Instruções de Controle
 
 <details>
-<sumary><h4>Instruções de Controle</h4></sumary>
+<summary><h4>Instruções de Controle</h4></summary>
 
 O coprocessador possui uma unica instrução de controle que é a `Start`. O tempo de execução é o tempo de execução da inferencia + 2 ciclos de clock.
 
@@ -341,7 +341,7 @@ O coprocessador possui uma unica instrução de controle que é a `Start`. O tem
 #### Start
 
 <details>
-<sumary><h5>Start</h5></sumary>
+<summary><h5>Start</h5></summary>
 
 Campos da instrução
 
@@ -370,7 +370,7 @@ OP Code | 3 | Código da instrução
 ## Barramentos
 
 <details>
-<sumary><h2>Barramentos</h2></sumary>
+<summary><h2>Barramentos</h2></summary>
 O coprocessador possui tres barramentos principais, dois de entrada e um de saida.
 
 Barramento | Tamanho | Descrição
@@ -382,7 +382,7 @@ Data Out | 32 | Barramento de dados de saida
 ### Data In
 
 <details>
-<sumary><h4>Data In</h4></sumary>
+<summary><h4>Data In</h4></summary>
 
 Esse barramento é utilizado unico e exclusivamente para o envio das instruções do coprocessador. Possui 32 bits que deverão ser preenchidos de acordo com a instrução que será executada.
 
@@ -391,7 +391,7 @@ Esse barramento é utilizado unico e exclusivamente para o envio das instruçõe
 ### Signals
 
 <details>
-<sumary><h4>Signals</h4></sumary>
+<summary><h4>Signals</h4></summary>
 
 Esse barramento é utilizado para envio de sinais de controle externos para o coprocessador. Possui tres bits, sendo cada bit utilizado para um sinal de controle.
 
@@ -406,7 +406,7 @@ Bit | Nome do Sinal | Utilidade
 ### Data Out
 
 <details>
-<sumary><h4>Data Out</h4></sumary>
+<summary><h4>Data Out</h4></summary>
 
 Barramento de saida de dados do coprocessador, possui largura de 32 bits, entretanto nem todos os bits são utilizados.
 
@@ -426,7 +426,7 @@ Barramento de saida de dados do coprocessador, possui largura de 32 bits, entret
 # Modulo VGA
 
 <details>
-<sumary><h1>Modulo VGA</h1></sumary>
+<summary><h1>Modulo VGA</h1></summary>
 
 O modulo VGA desenvolvido para a terceira etapa do PBL de sistemas digitais esta nomeado como `controller_vga_to_sd` e se localiza dentro da pasta `modulo_vga`.
 Não há necessidade de embutir o modulo dentro do coprocessador, sendo assim, basta a correta instanciação de PIOs para sua utilização.
@@ -453,6 +453,6 @@ vga_green     | 8 bits  | Saida dos sinais do canal verde para a porta VGA
 vga_blue      | 8 bits  | Saida dos sinais do canal azul para a porta VGA 
 done          | 1 bit   | Saida do sinal de done emitida pelo modulo após escrever um pixel na memória
 
-> [!WARNING] Aviso
+> [!WARNING]
 > Para o sinal de `clk` deve ser utilizado um dos clocks de **50 MHz** que a placa possui, Utilizar outro sinal de clock com valor diferentes pode resultar no não funcionamento do modulo
 
