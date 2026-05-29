@@ -467,8 +467,3 @@ done          | 1 bit   | Saida do sinal de done emitida pelo modulo após escre
 > Para o sinal de `clk` deve ser utilizado um dos clocks de **50 MHz** que a placa possui, Utilizar outro sinal de clock com valor diferentes pode resultar no não funcionamento do modulo
 
 </details>
-
-
-> [!WARNING]
-> 
-> Para o sinal de `clk` deve ser utilizado um dos clocks de **50 MHz** que a placa possui, Utilizar outro sinal de clock com valor diferentes pode resultar no não funcionamento do modulo
