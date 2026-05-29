@@ -1,9 +1,23 @@
-# CoProcessador para o segundo problema do PBL de Sistema Digitais
+# CoProcessador e modulo VGA para o terceiro problema do PBL de Sistema Digitais
+
 
 <div align="center">
 <h1>
 
-[Estrutura Implementada](#estrutura-implementada) | [ISA](#conjunto-de-instruções-isa) | [Barramentos](#barramentos)  | [Modulo Vga](#modulo-vga)
+[CoProcessador](#coprocessador) | [Modulo VGA](#conjunto-de-instruções-isa) 
+
+</h1>
+</div>
+
+# CoProcessador
+
+
+<details>
+<sumary><h1>CoProcessador</h1></sumary>
+<div align="center">
+<h1>
+
+[Estrutura Implementada](#estrutura-implementada) | [ISA](#conjunto-de-instruções-isa) | [Barramentos](#barramentos) 
 
 </h1>
 </div>
@@ -405,15 +419,40 @@ Barramento de saida de dados do coprocessador, possui largura de 32 bits, entret
 > Mesmo que uma operação seja concluida, caso o sinal de enable ainda esteja em nivel logico alto, a flag de **Done** não sera acionada até que o sinal retorne ao nivel logico baixo, evitando a execução de instruções erroneamente, ou que execute a mesma instrução novamente.
 
 </details>
+</details>
+</details>
 
-##Modulo VGA
+
+# Modulo VGA
 
 <details>
-<sumary><h2>Modulo VGA</h2></sumary>
+<sumary><h1>Modulo VGA</h1></sumary>
 
-O modulo VGA desenvolvido para ser utilizado durante a terceira fase que está disponivel na pasta *modulo_vga* consegue desenhar até 512 cores em uma grade de 320x240 pixeis
-Para sua utilização é necessario apenas a realização de sua instanciação e a correta alocação de pios para o modulo, obedecendo o tamanho de cada barramento e a disposição deles.
+O modulo VGA desenvolvido para a terceira etapa do PBL de sistemas digitais esta nomeado como `controller_vga_to_sd` e se localiza dentro da pasta `modulo_vga`.
+Não há necessidade de embutir o modulo dentro do coprocessador, sendo assim, basta a correta instanciação de PIOs para sua utilização.
 
+A tabela a baixo descreve cada uma das entradas e saidas do modulo, além de suas portas, tamanho e descrição
 
-</details>
-</details>
+Nome da porta | Tamanho | Função
+:------------:|:-------:|:------
+posx          | 9 bits  | Entrada da posição horizontal do pixel na tela (0 a 319)
+posy          | 8 bits  | Entrada da posição vertical do pixel na tela (0 a 239)
+enable        | 1 bit   | Entrada do sinal de habilitação de escrita de um pixel
+red           | 3 bits  | Entrada para a cor vermelha do pixel que será armazenado/exibido
+green         | 3 bits  | Entrada para a cor verde do pixel que será armazenado/exibido
+blue          | 3 bits  | Entrada para a cor azul do pixel que será armazenado/exibido
+clk           | 1 bit   | Clock de **50 MHz** vindo diretamente da FPGA
+rst           | 1 bit   | Sinal de reset para limpeza dos registradores internos do modulo VGA
+hs            | 1 bit   | Saida do sinal de sincronização horizontal da porta VGA
+vs            | 1 bit   | Saida do snial de sincronização vertical da porta VGA
+sync          | 1 bit   | Saida do sinal de sincronização da porta VGA
+blank         | 1 bit   | Saida do sinal de blank da porta VGA
+vga_clk       | 1 bit   | Saida do sinal de clock da porta VGA
+vga_red       | 8 bits  | Saida dos sinais do canal vermelho para a porta VGA  
+vga_green     | 8 bits  | Saida dos sinais do canal verde para a porta VGA  
+vga_blue      | 8 bits  | Saida dos sinais do canal azul para a porta VGA 
+done          | 1 bit   | Saida do sinal de done emitida pelo modulo após escrever um pixel na memória
+
+> [!WARNING] Aviso
+> Para o sinal de `clk` deve ser utilizado um dos clocks de **50 MHz** que a placa possui, Utilizar outro sinal de clock com valor diferentes pode resultar no não funcionamento do modulo
+
